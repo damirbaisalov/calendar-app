@@ -7,16 +7,44 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <CalendarView
+<!--   <com.applandeo.materialcalendarview.extensions.CalendarGridView-->
+<!--       android:id="@+id/calendar_view"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"-->
+<!--       app:layout_constraintBottom_toBottomOf="parent"-->
+<!--       app:layout_constraintTop_toTopOf="parent"-->
+<!--       />-->
+
+   <com.applandeo.materialcalendarview.CalendarView
        android:id="@+id/calendar_view"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintBottom_toTopOf="@id/button"
        app:layout_constraintTop_toTopOf="parent"
-       android:theme="@style/CalenderViewCustom"
-       android:dateTextAppearance="@style/CalenderViewDateCustomText"
-       android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
-       />
+       android:layout_marginHorizontal="20dp"
+       android:elevation="4dp"
+       app:headerColor="@color/color_1"
+       app:headerLabelColor="@color/white"
+       app:abbreviationsBarColor="@color/color_2"
+       app:abbreviationsLabelsColor="@color/white"
+       app:pagesColor="@color/white"
+       app:selectionColor="@color/color_1"
+       app:selectionLabelColor="@color/white"
+       app:daysLabelsColor="@color/color_1"
+       app:highlightedDaysLabelsColor="@color/color_2"
+       app:todayLabelColor="@color/black"
+   />
+
+<!--   <CalendarView-->
+<!--       android:id="@+id/calendar_view"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="wrap_content"-->
+<!--       app:layout_constraintBottom_toBottomOf="parent"-->
+<!--       app:layout_constraintTop_toTopOf="parent"-->
+<!--       android:theme="@style/CalenderViewCustom"-->
+<!--       android:dateTextAppearance="@style/CalenderViewDateCustomText"-->
+<!--       android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"-->
+<!--       />-->
 
    <Button
        android:id="@+id/button"
@@ -35,30 +63,5 @@
        app:layout_constraintEnd_toEndOf="@id/calendar_view"
        />
 
-   <TextView
-       android:id="@+id/text_view"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:layout_constraintTop_toTopOf="parent"
-       android:text="Бүгінгі күн:"
-       android:textSize="30dp"
-       android:textColor="@color/white"
-       app:layout_constraintBottom_toTopOf="@+id/calendar_view"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       />
-
-   <TextView
-       android:id="@+id/current_date_text_view"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="24 april"
-       android:textSize="26dp"
-       android:textColor="@color/white"
-       app:layout_constraintTop_toBottomOf="@id/text_view"
-       app:layout_constraintStart_toStartOf="@id/text_view"
-       app:layout_constraintEnd_toEndOf="@id/text_view"
-       app:layout_constraintBottom_toTopOf="@id/calendar_view"
-       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
