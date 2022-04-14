@@ -40,7 +40,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        app:layout_constraintTop_toTopOf="parent"
-       android:text="Бүгінгі күн:"
+       android:text="Бүгін:"
        android:textSize="30dp"
        android:textColor="@color/white"
        app:layout_constraintBottom_toTopOf="@+id/calendar_view"

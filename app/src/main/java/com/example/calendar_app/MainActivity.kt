@@ -2,6 +2,7 @@ package com.example.calendar_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
@@ -83,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         val selectedDate = calendarView.date
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = selectedDate
-        val dateFormatter = DateFormat.getDateInstance(DateFormat.MEDIUM)
+        val dateFormatter = DateFormat.getDateInstance(DateFormat.LONG, Locale("kk"))
         currentDateTextView.text = "${dateFormatter.format(calendar.time)}"
     }
 
