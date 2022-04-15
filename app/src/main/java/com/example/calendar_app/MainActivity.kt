@@ -1,7 +1,9 @@
 package com.example.calendar_app
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
@@ -9,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.calendar_app.day_detailed.DayActivity
 import com.example.calendar_app.models.Database
 import com.example.calendar_app.models.DayData
 import com.prolificinteractive.materialcalendarview.CalendarDay
@@ -33,31 +36,36 @@ class MainActivity : AppCompatActivity() {
         getCurrentDate()
 
         button.setOnClickListener {
-            val dateFormatDay = SimpleDateFormat("d")
-            val dateFormatMonth = SimpleDateFormat("M")
-            val date = Date()
-            val text = dateFormatDay.format(date) + " " +dateFormatMonth.format(date)
+            val year = CalendarDay.today().year
+            val month = CalendarDay.today().month
+            val dayOfMonth = CalendarDay.today().day
+
             for (day in list) {
-                if (day.date==text) {
-                    showToast(day.description)
+                if ((month== day.month.toInt()-1) && (dayOfMonth == day.day.toInt())) {
+                    sendData(
+                        title = convertDateToString(year, month, dayOfMonth),
+                        description = day.description
+                    )
                 }
             }
         }
 
         calendarView.setOnDateChangedListener { widget, date, selected ->
-
-            Log.e("EEE", date.month.toString())
-
+            
             if (!selected) {
                 widget.setDateSelected(date,true)
 
                 for (day in list) {
-                    if ((date.month == day.month.toInt()-1) && (date.day == day.day.toInt()))
-                        showToast(day.description)
+                    if ((date.month == day.month.toInt()-1) && (date.day == day.day.toInt())) {
+                        sendData(
+                            title = convertDateToString(date.year, date.month, date.day),
+                            description = day.description
+                        )
+                    }
                 }
             } else {
                 widget.setDateSelected(date,false)
-                showToast("NONE")
+                showToast("Күн табылмады")
             }
         }
     }
@@ -95,6 +103,24 @@ class MainActivity : AppCompatActivity() {
         currentDateTextView.text = "${dateFormatter.format(calendar.time)}"
     }
 
+    private fun sendData(title: String, description: String) {
+
+        val intent = Intent(this, DayActivity::class.java)
+        intent.putExtra("day_title", title)
+        intent.putExtra("day_description", description)
+        startActivity(intent)
+    }
+
+    private fun convertDateToString(year: Int, month: Int, dayOfYear: Int): String {
+
+        val selectedDate = CalendarDay.from(year, month, dayOfYear)
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = selectedDate.date.time
+        val dateFormatter = DateFormat.getDateInstance(DateFormat.LONG, Locale("kk"))
+
+        return "${dateFormatter.format(calendar.time)}"
+    }
+
     private fun setLocale() {
 
         val locale = Locale("kk")
@@ -113,10 +139,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showToast(text: String) {
-        Toast.makeText(
+
+        val toast = Toast.makeText(
             this@MainActivity,
             text,
             Toast.LENGTH_SHORT
-        ).show()
+        )
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.show()
     }
 }

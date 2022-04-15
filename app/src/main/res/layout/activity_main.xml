@@ -63,7 +63,7 @@
        android:layout_height="wrap_content"
        app:layout_constraintTop_toTopOf="parent"
        android:text="Бүгін:"
-       android:textSize="24dp"
+       android:textSize="24sp"
        android:textColor="@color/white"
        app:layout_constraintBottom_toTopOf="@+id/current_date_text_view"
        app:layout_constraintStart_toStartOf="parent"
