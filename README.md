@@ -10,6 +10,9 @@ App to view dates in calendar.
 - Material-calendar-view library
 
 ## Screenshots
+<img src="/images/screen1.jpg" width="300" height="468">
+<img src="/images/screen2.jpg" width="300" height="468">
+<img src="/images/screen3.jpg" width="300" height="468">
 
 ![App Screenshot](/images/screen1.jpg)
 
