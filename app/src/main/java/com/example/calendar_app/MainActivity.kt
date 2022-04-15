@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         calendarView.setOnDateChangedListener { widget, date, selected ->
-            
+
             if (!selected) {
                 widget.setDateSelected(date,true)
 
