@@ -7,15 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <CalendarView
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:background="@color/white"
+       app:layout_constraintBottom_toTopOf="@id/calendar_view"
+       />
+
+   <com.prolificinteractive.materialcalendarview.MaterialCalendarView
        android:id="@+id/calendar_view"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
+       app:mcv_monthLabels="@array/material_calendar_months_array"
+       app:mcv_weekDayLabels="@array/material_calendar_week_array"
+       app:mcv_arrowColor="@color/white"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintTop_toTopOf="parent"
-       android:theme="@style/CalenderViewCustom"
-       android:dateTextAppearance="@style/CalenderViewDateCustomText"
-       android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+       app:mcv_showOtherDates="defaults"
+       app:mcv_firstDayOfWeek="monday"
+       app:mcv_selectionColor="@color/color_1"
+       app:mcv_headerTextAppearance="@style/CustomTextAppearance"
+       app:mcv_dateTextAppearance="@style/CustomTextAppearance"
+       app:mcv_weekDayTextAppearance="@style/CustomTextAppearance"
+       android:padding="10dp"
+       app:mcv_titleAnimationOrientation="horizontal"
+       />
+
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:background="@color/white"
+       app:layout_constraintTop_toBottomOf="@id/calendar_view"
        />
 
    <Button
@@ -41,9 +63,9 @@
        android:layout_height="wrap_content"
        app:layout_constraintTop_toTopOf="parent"
        android:text="Бүгін:"
-       android:textSize="30dp"
+       android:textSize="24dp"
        android:textColor="@color/white"
-       app:layout_constraintBottom_toTopOf="@+id/calendar_view"
+       app:layout_constraintBottom_toTopOf="@+id/current_date_text_view"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        />
@@ -53,7 +75,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="24 april"
-       android:textSize="26dp"
+       android:textSize="18dp"
        android:textColor="@color/white"
        app:layout_constraintTop_toBottomOf="@id/text_view"
        app:layout_constraintStart_toStartOf="@id/text_view"

@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">Calendar-app</string>
+
+    <string name="material_calendar_monday">Дүй.</string>
+    <string name="material_calendar_tuesday">Сей.</string>
+    <string name="material_calendar_wednesday">Сәр</string>
+    <string name="material_calendar_thursday">Бей.</string>
+    <string name="material_calendar_friday">Жұма</string>
+    <string name="material_calendar_saturday">Сен.</string>
+    <string name="material_calendar_sunday">Жек.</string>
+
+    <array name="material_calendar_week_array">
+        <item name="monday">Жек.</item>
+        <item name="tuesday">Дүй.</item>
+        <item name="wednesday">Сей.</item>
+        <item name="thursday">Сәр.</item>
+        <item name="friday">Бей.</item>
+        <item name="saturday">Жұма</item>
+        <item name="sunday">Сен.</item>
+    </array>
+
+    <array name="material_calendar_months_array">
+        <item>Қаңтар</item>
+        <item>Ақпан</item>
+        <item>Наурыз</item>
+        <item>Сәуір</item>
+        <item>Мамыр</item>
+        <item>Маусым</item>
+        <item>Шілде</item>
+        <item>Тамыз</item>
+        <item>Қыркүйек</item>
+        <item>Қазан</item>
+        <item>Қараша</item>
+        <item>Желтоқсан</item>
+    </array>
 </resources>
